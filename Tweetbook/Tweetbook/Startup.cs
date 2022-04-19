@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Tweetbook.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Tweetbook.Installers;
 using Tweetbook.Options;
 
 namespace Tweetbook
@@ -17,21 +20,11 @@ namespace Tweetbook
         {
             Configuration = configuration;
         }
-
-        
-
         // This method gets called by the runtime. Use this method to add services to the container.
+        // Chapter3:Dependency Registration  - Here we will be moving content of ConfigureServices to separate files
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSwaggerGen(x => { x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo {Title = "Tweetbook Api", Version = "v1"}); });
+            services.InstallServices(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,13 +48,9 @@ namespace Tweetbook
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseMvc(routes => 
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            
+            // No paramaters for the MVC
+            app.UseMvc();
         }
     }
 

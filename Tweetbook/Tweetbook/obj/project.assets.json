@@ -12717,11 +12717,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prigre\\RiderProjects\\Tweetbook\\Tweetbook\\Tweetbook.csproj",
+      "projectUniqueName": "C:\\Users\\prigre\\RiderProjects\\TweetBookApi\\Tweetbook\\Tweetbook\\Tweetbook.csproj",
       "projectName": "Tweetbook",
-      "projectPath": "C:\\Users\\prigre\\RiderProjects\\Tweetbook\\Tweetbook\\Tweetbook.csproj",
+      "projectPath": "C:\\Users\\prigre\\RiderProjects\\TweetBookApi\\Tweetbook\\Tweetbook\\Tweetbook.csproj",
       "packagesPath": "C:\\Users\\prigre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prigre\\RiderProjects\\Tweetbook\\Tweetbook\\obj\\",
+      "outputPath": "C:\\Users\\prigre\\RiderProjects\\TweetBookApi\\Tweetbook\\Tweetbook\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
